@@ -1,0 +1,10 @@
+<div class="cart">
+  <h2>Your Cart</h2>
+  <div *ngFor="let item of cartItems">
+    <p>{{item.flower.name}} (x{{item.quantity}})</p>
+    <p>₹{{item.flower.price * item.quantity}}</p>
+    <button (click)="removeFromCart(item)">Remove</button>
+  </div>
+  <p *ngIf="cartItems.length === 0">Cart is empty.</p>
+  <button [disabled]="!cartItems.length" routerLink="/checkout">Proceed to Checkout</button>
+</div>

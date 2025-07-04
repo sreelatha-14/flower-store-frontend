@@ -1,0 +1,13 @@
+<div class="flower-list">
+  <h2>Flowers</h2>
+  <div class="flowers" *ngIf="flowers.length">
+    <div class="flower" *ngFor="let flower of flowers">
+      <img [src]="flower.imageUrl" alt="{{flower.name}}" />
+      <h3>{{flower.name}}</h3>
+      <p>{{flower.description}}</p>
+      <p>₹{{flower.price}}</p>
+      <button (click)="addToCart(flower)">Add to Cart</button>
+    </div>
+  </div>
+  <div *ngIf="!flowers.length">Loading...</div>
+</div>
