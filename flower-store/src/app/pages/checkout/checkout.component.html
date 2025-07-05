@@ -1,8 +1,12 @@
+<app-header></app-header>
 <div class="checkout">
   <h2>Checkout</h2>
-  <div *ngFor="let item of cartItems">
-    <p>{{item.flower.name}} - ₹{{item.flower.price}} x {{item.quantity}}</p>
+
+  <div *ngFor="let item of cartItems" class="checkout-item">
+    <p>{{ item.flower.name }} - ₹{{ item.flower.price }} x {{ item.quantity }}</p>
   </div>
-  <h3>Total: ₹{{total}}</h3>
+
+  <h3>Total: ₹{{ total }}</h3>
+
   <button (click)="placeOrder()">Place Order</button>
 </div>

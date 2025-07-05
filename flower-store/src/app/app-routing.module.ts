@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { authGuard } from './guards/auth.guard';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 const routes: Routes = [
   { path: '', component: FlowerListComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'cart', component: CartComponent, canActivate: [authGuard] },
   { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
+  { path: 'orders', component: OrdersComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: '' }
 ];
 

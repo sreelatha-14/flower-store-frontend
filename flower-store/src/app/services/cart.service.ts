@@ -15,10 +15,16 @@ export class CartService {
   }
 
   addToCart(flowerId: number) {
-    return this.http.post(this.baseUrl, { flowerId, quantity: 1 });
+    const path = this.baseUrl + "/add";
+    return this.http.post(path, { flowerId, quantity: 1 });
   }
 
   removeFromCart(cartItemId: number) {
-    return this.http.delete(`${this.baseUrl}/${cartItemId}`);
+    const path = this.baseUrl + "/clear"
+    return this.http.delete(`${path}/${cartItemId}`);
+  }
+  updateItemQuantity(cartItemId:number,quantity:number) {
+    const path = this.baseUrl + '/update'
+    return this.http.put(path,{cartItemId,quantity})
   }
 }

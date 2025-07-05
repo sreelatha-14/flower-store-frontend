@@ -1,10 +1,48 @@
-<div class="cart">
-  <h2>Your Cart</h2>
-  <div *ngFor="let item of cartItems">
-    <p>{{item.flower.name}} (x{{item.quantity}})</p>
-    <p>₹{{item.flower.price * item.quantity}}</p>
-    <button (click)="removeFromCart(item)">Remove</button>
+<app-header></app-header>
+
+<div class="cart-container">
+  <div class="cart-card-container">
+    <h2>My Cart</h2>
+
+    <ng-container *ngIf="cartItems.length; else emptyCart">
+      <div *ngFor="let item of cartItems" class="cart-item-card">
+        <div class="cart-item">
+          <!-- ✅ Flower Image -->
+          <img [src]="item.flower.imageUrl" alt="{{ item.flower.name }}" class="flower-image" />
+
+          <!-- Flower Name -->
+          <div class="name">{{ item.flower.name }}</div>
+
+          <!-- Quantity Controls -->
+          <div class="quantity-controls">
+            <button mat-icon-button color="primary" (click)="decreaseQuantity(item)">
+              <mat-icon>remove</mat-icon>
+            </button>
+            <span>{{ item.quantity }}</span>
+            <button mat-icon-button color="primary" (click)="increaseQuantity(item)">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+
+          <!-- Price -->
+          <div class="price">₹{{ item.flower.price * item.quantity }}</div>
+        </div>
+      </div>
+
+      <!-- ✅ Optional Total Display -->
+      <div class="cart-total">
+        Total: ₹{{ getCartTotal() }}
+      </div>
+
+      <div class="checkout-footer">
+        <button [disabled]="!cartItems.length" routerLink="/checkout">
+          Proceed to Checkout
+        </button>
+      </div>
+    </ng-container>
+
+    <ng-template #emptyCart>
+      <p class="cart-empty">Cart is empty.</p>
+    </ng-template>
   </div>
-  <p *ngIf="cartItems.length === 0">Cart is empty.</p>
-  <button [disabled]="!cartItems.length" routerLink="/checkout">Proceed to Checkout</button>
 </div>

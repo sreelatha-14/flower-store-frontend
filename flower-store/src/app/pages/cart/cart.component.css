@@ -1,22 +1,125 @@
-.cart {
-  max-width: 800px;
+
+.cart-container {
+  max-width: 900px;
   margin: 2rem auto;
+  padding: 1rem;
+}
 
-  h2 {
-    margin-bottom: 1rem;
-  }
 
-  div {
-    border-bottom: 1px solid #ccc;
-    padding: 1rem 0;
-  }
+.cart-card-container {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
 
-  button {
-    margin-top: 0.5rem;
-    background-color: #dc3545;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-  }
+
+.cart-card-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #1976d2;
+}
+
+
+.cart-item-card {
+  background-color: #f7f9fc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+
+.flower-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.name {
+  flex: 2;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.quantity-controls span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 36px;
+}
+
+.price {
+  flex: 1;
+  text-align: right;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+
+.cart-total {
+  text-align: right;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  padding: 0.5rem 0;
+  border-top: 1px solid #ddd;
+}
+
+
+.checkout-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.checkout-footer button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.checkout-footer button:hover {
+  background-color: #145ca1;
+}
+
+.checkout-footer button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.cart-empty {
+  text-align: center;
+  color: #777;
+  margin-top: 2rem;
+  font-style: italic;
 }

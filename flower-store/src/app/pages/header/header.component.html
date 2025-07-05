@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="title">🌼 FloraNest</div>
+  <div class="tagline">Handpicked Blooms for Every Moment.</div>
+  <nav class="nav-buttons">
+    <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">🔐 Login</a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">🏠 Home</a>
+    <a routerLink="/cart" routerLinkActive="active">🛒 Cart</a>
+    <a routerLink="/orders" routerLinkActive="active">📦 Orders</a>
+    <div *ngIf="isLoggedIn" class="user-section">
+    <div class="user-avatar" (click)="toggleDropdown()">
+      {{ firstLetter }}
+    </div>
+    <div class="dropdown-menu" *ngIf="showDropdown">
+      <button (click)="logout()">🚪 Logout</button>
+    </div>
+    </div>
+  </nav>
+</header>

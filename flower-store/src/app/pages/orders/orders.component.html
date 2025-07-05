@@ -1,0 +1,33 @@
+<app-header></app-header>
+<h2>My Orders</h2>
+
+<div *ngIf="orders.length === 0" class="empty">
+  No orders found.
+</div>
+
+<div *ngFor="let order of orders" class="order-card">
+  <div class="order-header">
+    <div><strong>Order #</strong>{{ order.id }}</div>
+    <div><strong>Date:</strong> {{ order.created_at | date:'shortDate' }}</div>
+    <div><strong>Total:</strong> ₹{{ order.total }}</div>
+  </div>
+
+  <div class="order-items">
+    <table>
+      <thead>
+        <tr>
+          <th>Flower</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of order.items">
+          <td>{{ item.flower.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>₹{{ item.flower.price * item.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
